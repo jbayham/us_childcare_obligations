@@ -33,3 +33,24 @@ run.script <- function(dir.name){
 #unit test
 #run.script("functions")
 
+#This function builds out the folder structure
+folder.setup <- function(){
+  require(purrr)
+  folder.list <- c("code",
+                   "cache",
+                   "inputs",
+                   "functions",
+                   "outputs")
+  
+  map(folder.list,
+      function(x){
+        if(!dir.exists(x)){
+          dir.create(x,recursive = T)
+          message(str_c("The ",x," folder has been created."))
+        } else {
+          message(str_c("The ",x," folder already exists."))
+        }
+      })
+  
+  return(NULL)
+}
