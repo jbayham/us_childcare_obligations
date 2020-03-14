@@ -9,11 +9,12 @@ to.plot <- expand.grid(fc=seq(0.01,.35,.001),
          beta=ifelse(beta>1,1,beta),   
          beta=ifelse(beta<=0,0,beta)
   )
-
+library(latex2exp)
 ggplot(data=to.plot,aes(x=gc,y=fc,fill=beta)) +
   geom_tile() +
   geom_point(x=.15,y=.15,size=3,color="red") +
-  geom_text(aes(x=.18,y=.15,label="Best National \nEstimate"),size=3,color="red") +
+  geom_text(aes(x=.19,y=.15),label="Best National \nEstimate",size=3,color="red") +
+  #geom_text(aes(x=.24,y=.143),label="(kappa==0.17)",parse = T,size=3,color="red") +
   geom_text(aes(x=.25,y=.08,label="School Closures \nNet Increase in Mortality"),color="white") +
   geom_text(aes(x=.09,y=.28,label="School Closures \nNet Decrease in Mortality"),color="black") +
   scale_x_continuous(expand = c(0, 0),labels = percent_format(accuracy = 1)) +

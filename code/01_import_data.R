@@ -2,7 +2,7 @@
 
 #############################
 #Extract zipped data extract from ipums
-if(!file.exists("inputs/cps_00004.dat")){
+if(!file.exists("inputs/cps_00005.dat")){
   gunzip("inputs/cps_00005.dat.gz",remove=F)
 }
 
@@ -12,9 +12,6 @@ if(!file.exists("inputs/cps_00004.dat")){
 data_in <- read_ipums_micro(ddi="inputs/cps_00005.xml",
                             data_file = "inputs/cps_00005.dat") %>%
   rename_all(str_to_lower)
-
-#data_in %>% sample_n(1000) %>% View()
-#data_in %>% filter(asecflag!=1,year>2017) %>% slice(1:1000) %>% View()
 
 #Subset only CPS monthly data 
 cps_data <- data_in %>%

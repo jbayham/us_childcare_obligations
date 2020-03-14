@@ -35,5 +35,17 @@ options(scipen = 999)
 #Loading project helper functions (all scripts within folder)
 run.script("functions")
 
+#Setup project directory
+folder.setup()
+
+#Check if data has been downloaded
+if(!file.exists("inputs/cps_00005.dat.gz")){
+  stop("Please download the data from: https://drive.google.com/file/d/1rKtRz2NlN7U3fnrUBmA6yDYtYJNg1p57/view?usp=sharing")
+  
+} else {
+  source("code/00-build.R")
+}
+
+
 
 #dlgMessage("Do you need to pull the repo?")
