@@ -25,7 +25,7 @@ cps_data <- data_in %>%
     dplyr::between(occ,7700,8965) ~ "Production"
   ),
   occ_categories = ifelse(is.na(occ_categories) & occ!=0,"Other",occ_categories),
-  occ_health = ifelse(occ %in% occ_health$codes,"Healthcare",NA)) %>%
+  occ_health = ifelse(occ %in% occ_health_subset$codes,"Healthcare",NA)) %>%
   mutate_at(vars(occ,ind),~str_pad(.,4,"left",0)) %>%
   mutate_at(vars(occ,ind),~na_if(.,"0000")) %>%
   mutate(metfips=str_pad(metfips,5,"left","0"),
