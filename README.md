@@ -28,3 +28,5 @@ https://drive.google.com/file/d/1rKtRz2NlN7U3fnrUBmA6yDYtYJNg1p57/view?usp=shari
 *************************************************
 
 Note that the dataset is large and is loaded into memory during analysis.
+
+We have also included an elasticity calculator to in the script code/elasticity_calculator.R.  The calculator can be used to find the critical 
