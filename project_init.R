@@ -40,7 +40,7 @@ folder.setup()
 
 #Check if data has been downloaded
 if(!file.exists("inputs/cps_00005.dat.gz")){
-  stop("Please download the data from: https://drive.google.com/file/d/1rKtRz2NlN7U3fnrUBmA6yDYtYJNg1p57/view?usp=sharing")
+  stop("Please download the data from: https://drive.google.com/drive/u/1/folders/1O-tKFi0izLq7IuB7irfhSmo_f9CaA5KV")
   
 } else {
   source("code/00-build.R")
