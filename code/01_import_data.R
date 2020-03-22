@@ -15,7 +15,7 @@ data_in <- read_ipums_micro(ddi="inputs/cps_00005.xml",
 
 #Subset only CPS monthly data 
 cps_data <- data_in %>%
-  filter((asecflag!=1| is.na(asecflag)),year>2017) %>%
+  filter((asecflag!=1| is.na(asecflag)),year>=2018) %>%
   mutate(occ_categories=case_when(
     dplyr::between(occ,3000,3655) ~ "All Healthcare",
     dplyr::between(occ,1,1965) | dplyr::between(occ,4700,5940) ~ "Office",
