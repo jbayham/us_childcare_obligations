@@ -19,7 +19,8 @@ init.pacs(c("tidyverse",      #shortcut to many useful packages (eg, dplyr, ggpl
             "labelled",
             "gtools",
             "R.utils",
-            "scales"
+            "scales",
+            "srvyr"           #For conducting analysis with survey data
 
 ))
 
@@ -41,11 +42,12 @@ folder.setup()
 #Check if data has been downloaded
 if(!file.exists("inputs/cps_00005.dat.gz")){
   stop("Please download the data from: https://drive.google.com/drive/u/1/folders/1O-tKFi0izLq7IuB7irfhSmo_f9CaA5KV")
-  
+
 } else {
   source("code/00-build.R")
 }
 
-
+#Append and large files to the gitignore to prevent accidentally pushing to GitHub
+shell("ignore_large.sh")
 
 #dlgMessage("Do you need to pull the repo?")
