@@ -20,13 +20,47 @@ Follow these steps to reproduce the analysis:
 1. Once you clone the repository, source (run) the script project_init.R.  This will setup the directory structure for the project.
 
 2. The raw data is an extract built and downloaded from the IPUMS-CPS.  The dataset can be downloaded here:
-https://drive.google.com/file/d/1rKtRz2NlN7U3fnrUBmA6yDYtYJNg1p57/view?usp=sharing. Place the file in the inputs folder.
+https://drive.google.com/file/d/1rKtRz2NlN7U3fnrUBmA6yDYtYJNg1p57/view?usp=sharing. Place the file in the inputs folder. *Note that the dataset is large and is loaded into memory during analysis.*
 
 3. Rerun the script project_init.R and it will run the scripts to generate tables and figures. All outputs will be saved in the outputs directory.
 
 
 *************************************************
+## Data
 
-Note that the dataset is large and is loaded into memory during analysis.
+We access the CPS data through the Integrated Public Use Microdata Series (https://cps.ipums.org/cps/).  While the data can be downloaded at the link above, we provide the information to recreate the extract.  Once on the IPUMS website, select the following variables to build the extract to run the analysis.
 
-We have also included an elasticity calculator to in the script code/elasticity_calculator.R.  The calculator can be used to find the critical 
+| Variable    | Description                                            |
+|-------------|--------------------------------------------------------|
+| year        | Survey year                                            |
+| serial      | Household serial number                                |
+| month       | Month                                                  |
+| hwtfinl     | Household weight, Basic Monthly                        |
+| cpsid       | CPSID, household record                                |
+| asecflag    | Flag for ASEC                                          |
+| hflag       | Flag for the 3/8 file 2014                             |
+| asecwth     | Annual Social and Economic Supplement Household weight |
+| mish        | Month in sample, household level                       |
+| metro       | Metropolitan central city status                       |
+| county      | FIPS county code                                       |
+| statecensus | State (Census code)                                    |
+| metfips     | Core-based Statistical Area                            |
+| hrhhid      | Household ID, part 1                                   |
+| hrhhid2     | Household ID, part 2                                   |
+| pernum      | Person number in sample unit                           |
+| wtfinl      | Final Basic Weight                                     |
+| cpsidp      | CPSID, person record                                   |
+| asecwt      | Annual Social and Economic Supplement Weight           |
+| relate      | Relationship to household head                         |
+| age         | Age                                                    |
+| sex         | Sex                                                    |
+| race        | Race                                                   |
+| marst       | Marital status                                         |
+| famsize     | Number of own family members in hh                     |
+| famunit     | Family unit membership                                 |
+| famrel      | Relationship to family                                 |
+| empstat     | Employment status                                      |
+| labforce    | Labor force status                                     |
+| occ         | Occupation                                             |
+| ind         | Industry                                               |
+| wkstat      | Full or part time status                               |
