@@ -1,4 +1,13 @@
 #This script generates the three part map in figure 1
+library(usmap)
+st_map <- us_map(regions = "states")
+
+plot_usmap("states",data = co_health_by_state, values = "co") +
+  scale_fill_viridis_c(name="",option = "D",labels=percent_format(accuracy = 1)) +
+  theme_void() 
+  #theme(legend.direction = "horizontal", legend.position = c(.2,.1)) +
+  # labs(title = y,
+  #      caption = z)
 
 load("cache/co_health_by_state.Rdata")
 ##################
@@ -9,7 +18,7 @@ us_st <- us_states(resolution = "low") %>%
 
 g.state <- inner_join(us_st %>% select(name,jurisdiction_type),
                       co_health_by_state,
-                      by = c("name"="statecensus")) %>% 
+                      by = c("name"="state")) %>% 
   filter(jurisdiction_type=="state")
 
 plot.list <- 
@@ -31,8 +40,9 @@ plot.list <-
            return(temp.vec)
          } 
          
-         p.map <- ggplot(data=temp.dat,aes(fill=value)) +
-           geom_sf() +
+         p.map <- plot_usmap("states",data = co_health_by_state, values = x, color="gray30") +
+           #ggplot(data=temp.dat,aes(fill=value)) +
+           #geom_sf() +
            scale_fill_viridis_c(name="",option = "D",limits=min.max,breaks=b.fun,labels=percent_format(accuracy = 1)) +
            theme_void() +
            #theme(legend.direction = "horizontal", legend.position = c(.2,.1)) +
@@ -48,5 +58,5 @@ plot.out <- plot_grid(plotlist=plot.list,ncol = 1,nrow = 3)
 cowplot::ggsave("outputs/co_map_vword.png",plot.out,
                 width =5.73,height = 9, units = "in" )
 
-cowplot::ggsave("outputs/co_map_print.pdf",plot.out,
+cowplot::ggsave("outputs/co_map_print.eps",plot.out,
                 width =5.73,height = 9, units = "in" )
