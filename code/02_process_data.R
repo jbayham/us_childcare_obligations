@@ -42,20 +42,26 @@ if(!file.exists("cache/cps_co.Rdata")){
   full_long <- inner_join(cps_recoded %>%
                             select(hrhhid,hrhhid2,mish,year,month,wtfinl,statecensus,metfips,metro,
                                    pernum,relate,age,sex,race,educ,
-                                   ind,occ,occ_categories,occ_health,empstat,wkstat,earnweek),
+                                   labforce,ind,occ,occ_categories,occ_health,empstat,wkstat,earnweek),
                           hh_co,
-                          by=c("hrhhid","hrhhid2","mish"))
+                          by=c("hrhhid","hrhhid2","mish")) %>%
+    ungroup()
   
   
   
   #Joining back to household level data (long)
-  hh_long <- inner_join(cps_recoded %>%
-                          select(hrhhid,hrhhid2,mish,year,month,hwtfinl,statecensus,metfips,metro,hhincome,famsize) %>%
-                          distinct(hrhhid,hrhhid2,mish,.keep_all=T),
-                        hh_co,
-                        by=c("hrhhid","hrhhid2","mish"))
+  # hh_long <- inner_join(cps_recoded %>%
+  #                         select(hrhhid,hrhhid2,mish,year,month,hwtfinl,statecensus,metfips,metro,hhincome,famsize) %>%
+  #                         distinct(hrhhid,hrhhid2,mish,.keep_all=T),
+  #                       hh_co,
+  #                       by=c("hrhhid","hrhhid2","mish"))
   
   
   
-  save(full_long,hh_long,file="cache/cps_co.Rdata")
+  save(full_long,file="cache/cps_co.Rdata")
 }
+
+
+
+
+# unique.respondents <- 

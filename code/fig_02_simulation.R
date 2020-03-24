@@ -10,13 +10,13 @@ to.plot <- expand.grid(fc=seq(0.01,.35,.001),
          beta=ifelse(beta<=0,0,beta)
   )
 library(latex2exp)
-ggplot(data=to.plot,aes(x=gc,y=fc,fill=beta)) +
+p <- ggplot(data=to.plot,aes(x=gc,y=fc,fill=beta)) +
   geom_tile() +
   geom_point(x=.15,y=.15,size=3,color="red") +
-  geom_text(aes(x=.19,y=.15),label="Best National \nEstimate",size=3,color="red") +
+  geom_text(aes(x=.194,y=.15),label="Best National \nEstimate",size=3,color="red") +
   #geom_text(aes(x=.24,y=.143),label="(kappa==0.17)",parse = T,size=3,color="red") +
-  geom_text(aes(x=.25,y=.08,label="School Closures \nNet Increase in Mortality"),color="white") +
-  geom_text(aes(x=.09,y=.28,label="School Closures \nNet Decrease in Mortality"),color="black") +
+  geom_text(aes(x=.25,y=.08,label="School Closures \nNet Increase in Mortality"),size=3,color="white") +
+  geom_text(aes(x=.09,y=.28,label="School Closures \nNet Decrease in Mortality"),size=3,color="black") +
   scale_x_continuous(expand = c(0, 0),labels = percent_format(accuracy = 1)) +
   scale_y_continuous(expand = c(0, 0),labels = percent_format(accuracy = 1)) +
   scale_fill_viridis_c(name="",option = "D") +
@@ -30,7 +30,10 @@ ggplot(data=to.plot,aes(x=gc,y=fc,fill=beta)) +
        caption = "")
   
 
-ggsave("outputs/beta_simulation_vword.png")
-ggsave("outputs/beta_simulation_submission.pdf",dpi = 600)
+ggsave("outputs/beta_simulation_vword.png",plot = p,
+       width = 5, height = 4, units = "in")
+
+ggsave("outputs/beta_simulation_submission.eps",plot = p,
+       width = 5, height = 4, units = "in")
 
 

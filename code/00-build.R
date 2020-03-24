@@ -25,10 +25,10 @@ load("cache/cps_co.Rdata")
 
 ############################################
 #Summarize the data
-source("code/03_summarize_data.R")
-
-#Produce figure 1 map
-source("code/fig_01_map.R")
-
-#Produce simulation figure
-source("code/fig_02_simulation.R")
+# source("code/03_summarize_data.R")
+# 
+# #Produce figure 1 map
+# source("code/fig_01_map.R")
+# 
+# #Produce simulation figure
+# source("code/fig_02_simulation.R")
