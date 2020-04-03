@@ -20,7 +20,7 @@ Follow these steps to reproduce the analysis:
 1. Once you clone the repository, source (run) the script project_init.R.  This will setup the directory structure for the project.
 
 2. The raw data is an extract built and downloaded from the IPUMS-CPS.  The dataset can be downloaded here:
-https://drive.google.com/file/d/1rKtRz2NlN7U3fnrUBmA6yDYtYJNg1p57/view?usp=sharing. Place the file in the inputs folder. *Note that the dataset is large and is loaded into memory during analysis.*
+https://drive.google.com/drive/folders/1O-tKFi0izLq7IuB7irfhSmo_f9CaA5KV?usp=sharing. Place the file in the inputs folder. *Note that the dataset is large and is loaded into memory during analysis.*
 
 3. Rerun the script project_init.R and it will run the scripts to generate tables and figures. All outputs will be saved in the outputs directory.
 
