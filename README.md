@@ -2,8 +2,10 @@
 
 Jude Bayham and Eli P. Fenichel
 
-This repository contains the code to run the analysis for the paper "The Impact of School Closure for COVID-19 on the US Healthcare Workforce and the Net Mortality Effects".  The preprint can be accessed here:
-https://www.medrxiv.org/content/10.1101/2020.03.09.20033415v1
+This repository contains the code to run the analysis for the paper "The Impact of School Closure for COVID-19 on the US Healthcare Workforce and the Net Mortality: a modelling study". Published in Lancet Public Health in 2020:
+https://www.sciencedirect.com/science/article/pii/S2468266720300827
+
+It also supports the child care dashboard at https://covid.yale.edu/innovation/mapping/childcare/
 
 ********************************************
 
